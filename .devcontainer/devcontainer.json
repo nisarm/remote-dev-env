@@ -1,0 +1,74 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.140.1/containers/javascript-node
+{
+	"name": "Node.js",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick a Node version: 10, 12, 14
+		"args": { "VARIANT": "12" }
+	},
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/zsh"
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	// "extensions": [
+	// 	"dbaeumer.vscode-eslint",
+	// 	"formulahendry.auto-close-tag",
+	// 	"formulahendry.auto-rename-tag",
+	// 	"coenraads.bracket-pair-colorizer",
+	// 	"msjsdiag.debugger-for-chrome",
+	// 	"ms-azuretools.vscode-docker",
+	// 	"johnpapa.vscode-peacock",
+	// 	"wayou.vscode-todo-highlight",
+	// 	"apollographql.vscode-apollo",
+	// 	"hookyqr.beautify",
+	// 	"ms-dotnettools.csharp",
+	// 	"donjayamanne.githistory",
+	// 	"eamodio.gitlens",
+	// 	"hashicorp.terraform",
+	// 	"wix.vscode-import-cost",
+	// 	"vscjava.vscode-java-pack",
+	// 	// "ms-vscode-remote.vscode-remote-extensionpack",
+	// 	"orta.vscode-jest",
+	// 	"atlassian.atlascode",
+	// 	"ms-kubernetes-tools.vscode-kubernetes-tools",
+	// 	"redhat.java",
+	// 	"sysoev.language-stylus",
+	// 	"yzhang.markdown-all-in-one",
+	// 	"davidanson.vscode-markdownlint",
+	// 	"jebbs.plantuml",
+	// 	"esbenp.prettier-vscode",
+	// 	"ms-python.python",
+	// 	"ms-ossdata.vscode-postgresql",
+	// 	"humao.rest-client",
+	// 	"syler.sass-indented",
+	// 	"ms-mssql.mssql",
+	// 	"octref.vetur",
+	// 	"visualstudioexptteam.vscodeintellicode",
+	// 	"dariofuzinato.vue-peek",
+	// 	"sdras.vue-vscode-snippets",
+	// 	"dotjoshjohnson.xml",
+	// 	"redhat.vscode-yaml"
+	// ]
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "yarn install",
+
+	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node",
+
+	"runArgs": ["--env-file",".devcontainer/devcontainer.env"],
+
+	"mounts": [
+		"source=${localEnv:HOME}/.aws,target=/home/node/.aws,type=bind,consistency=cached",
+		"source=${localWorkspaceFolder}/.zshrc,target=/home/node/.zshrc,type=bind,consistency=cached"
+		// if need to reflect .zshrc then need to execute `exec zsh`
+		
+	  ]
+}
