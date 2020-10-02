@@ -67,6 +67,7 @@
 
 	"mounts": [
 		"source=${localEnv:HOME}/.aws,target=/home/node/.aws,type=bind,consistency=cached",
+		"source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached",
 		"source=${localWorkspaceFolder}/.zshrc,target=/home/node/.zshrc,type=bind,consistency=cached"
 		// if need to reflect .zshrc then need to execute `exec zsh`
 		
